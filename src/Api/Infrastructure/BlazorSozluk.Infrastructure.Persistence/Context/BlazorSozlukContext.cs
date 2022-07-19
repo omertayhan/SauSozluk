@@ -7,6 +7,10 @@ public class BlazorSozlukContext: DbContext
 {
     public const string DEFAULT_SCHEMA = "dbo";
 
+    public BlazorSozlukContext()
+    {
+
+    }
     public BlazorSozlukContext(DbContextOptions options) : base(options)
     {
     }
@@ -49,6 +53,18 @@ public class BlazorSozlukContext: DbContext
         {
             if (entity.CreatedDate == DateTime.MinValue)
                 entity.CreatedDate = DateTime.Now;
+        }
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {   
+        if(optionsBuilder.IsConfigured)
+        {
+            var connStr = "Data Source=localhost;Initial Catalog=blazorsozluk;Persist Security Info=True;User ID=postgres;Password=postgres";
+            optionsBuilder.UseSqlServer(connStr, opt =>
+            {
+                opt.EnableRetryOnFailure();
+            });
         }
     }
 }
