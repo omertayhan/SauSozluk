@@ -15,7 +15,8 @@ internal class EntryCommentEntityConfiguration : BaseEntityConfiguration<Api.Dom
 
         builder.HasOne(i => i.CreatedBy)
             .WithMany(i => i.EntryComments)
-            .HasForeignKey(i => i.CreateById);
+            .HasForeignKey(i => i.CreateById)
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(i => i.Entry)
             .WithMany(i => i.EntryComments)
