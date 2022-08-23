@@ -10,7 +10,7 @@ public class EntryVoteEntityConfiguration : BaseEntityConfiguration<EntryVote>
     {
         base.Configure(builder);
 
-        builder.ToTable("entryfavorite", BlazorSozlukContext.DEFAULT_SCHEMA);
+        builder.ToTable("entryvote", BlazorSozlukContext.DEFAULT_SCHEMA);
 
         builder.HasOne(i => i.Entry)
             .WithMany(i => i.EntryVotes)

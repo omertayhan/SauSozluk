@@ -22,6 +22,18 @@ public class BlazorSozlukContext: DbContext
     public DbSet<EntryCommentFavorite> entryCommentFavorites { get; set; }
     public DbSet<EntryCommentVote> entryCommentVotes { get; set; }
     public DbSet<EmailConfirmation> emailConfirmations { get; set; }
+    
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            var connStr = "Data Source=localhost;Initial Catalog=blazorsozluk;Persist Security Info=True;User ID=sa;Password=1234";
+            optionsBuilder.UseSqlServer(connStr, opt =>
+            {
+                opt.EnableRetryOnFailure();
+            });
+        }
+    }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
@@ -53,18 +65,6 @@ public class BlazorSozlukContext: DbContext
         {
             if (entity.CreatedDate == DateTime.MinValue)
                 entity.CreatedDate = DateTime.Now;
-        }
-    }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {   
-        if(optionsBuilder.IsConfigured)
-        {
-            var connStr = "Data Source=localhost;Initial Catalog=blazorsozluk;Persist Security Info=True;User ID=postgres;Password=postgres";
-            optionsBuilder.UseSqlServer(connStr, opt =>
-            {
-                opt.EnableRetryOnFailure();
-            });
         }
     }
 }
