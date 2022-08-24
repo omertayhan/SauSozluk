@@ -9,6 +9,7 @@ public static class Registration
 {
     public static IServiceCollection AddInfrastructureRegistration(this IServiceCollection services, IConfiguration configuration)
     {
+        //db injections işlemi
         services.AddDbContext<BlazorSozlukContext>(conf =>
         {
             var connStr = configuration["BlazorSozlukDbConnectionString"].ToString();
@@ -17,6 +18,11 @@ public static class Registration
                 opt.EnableRetryOnFailure();
             });
         });
+
+        //api.webapi çalıştıgında fake data üreten blogumuz 
+        //var seedData = new SeedData();
+        //seedData.SeedAsync(configuration).GetAwaiter().GetResult();
+
         return services;
     }
 }
