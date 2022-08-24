@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
+
 namespace BlazorSozluk.Infrastructure.Persistence.Context;
 public class BlazorSozlukContext: DbContext
 {
