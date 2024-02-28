@@ -28,7 +28,7 @@ public class BlazorSozlukContext: DbContext
     {
         if (!optionsBuilder.IsConfigured)
         {
-            var connStr = "Data Source=localhost;Initial Catalog=blazorsozluk;Persist Security Info=True;User ID=sa;Password=1234";
+            var connStr = "Data Source=DESKTOP-6KI46C2\\SQLEXPRESS;Initial Catalog=BlazorSozluk;Persist Security Info=True;User ID=sa;Password=1234;TrustServerCertificate=True";
             optionsBuilder.UseSqlServer(connStr, opt =>
             {
                 opt.EnableRetryOnFailure();
