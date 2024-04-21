@@ -1,5 +1,5 @@
 ﻿using BlazorSozluk.Api.Application.Interfaces.Repositories;
-using BlazorSozluk.Api.Domain.Models;
+using BlazorSozluk.Api.Infrastructure.Persistence.Repositories;
 using BlazorSozluk.Infrastructure.Persistence.Context;
 using BlazorSozluk.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace BlazorSozluk.Infrastructure.Persistence.Extensions;
 
 public static class Registration
-{
+{ 
     public static IServiceCollection AddInfrastructureRegistration(this IServiceCollection services, IConfiguration configuration)
     {
         //db injections işlemi
@@ -25,7 +25,12 @@ public static class Registration
         //api.webapi çalıştıgında fake data üreten blogumuz 
         //var seedData = new SeedData();
         //seedData.SeedAsync(configuration).GetAwaiter().GetResult();
-        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<DbContext, BlazorSozlukContext>();
+
+        services.AddTransient<IUserRepository, UserRepository>();
+        services.AddTransient<IEmailConfirmationRepository, EmailConfirmationRepository>();
+        services.AddTransient<IEntryRepository, EntryRepository>();
+        services.AddTransient<IEntryCommentRepository, EntryCommentRepository>();
 
         return services;
     }
