@@ -21,7 +21,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
 
     public async Task<Guid> Handle(CreateUserCommand request, CancellationToken cancellationToken)
     {
-        var existUser = await _userRepository.GetSingleAsync(i => i.EmailAddress == request.EmailAdress);
+        var existUser = await _userRepository.GetSingleAsync(i => i.EmailAddress == request.EmailAddress);
 
         if (existUser != null)
         {
