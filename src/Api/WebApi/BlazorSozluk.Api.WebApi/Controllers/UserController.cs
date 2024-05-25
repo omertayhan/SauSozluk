@@ -21,7 +21,7 @@ public class UserController : BaseController
     [HttpGet("{id}")]
     public async Task<IActionResult> Get(Guid id)
     {
-        var user = await mediator.Send(new GetUserDetailQuery(id, string.Empty));
+        var user = await mediator.Send(new GetUserDetailQuery(id));
 
         return Ok(user);
     }
