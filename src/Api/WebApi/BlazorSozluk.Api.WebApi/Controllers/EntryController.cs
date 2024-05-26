@@ -23,6 +23,7 @@ public class EntryController : BaseController
     }
 
     [HttpGet]
+    [AllowAnonymous]
     public async Task<IActionResult> GetEntries([FromQuery] GetEntriesQuery query)
     {
         var entries = await mediator.Send(query);

@@ -3,11 +3,13 @@ using BlazorSozluk.Api.Application.Features.Commands.Entry.DeleteFav;
 using BlazorSozluk.Api.Application.Features.Commands.EntryComment.CreateFav;
 using BlazorSozluk.Api.Application.Features.Commands.EntryComment.DeleteFav;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlazorSozluk.Api.WebApi.Controllers;
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class FavoriteController : BaseController
 {
 

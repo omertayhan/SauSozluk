@@ -1,16 +1,45 @@
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Pages\Components\PaginationComponent.razor" />
+    <None Include="Pages\Counter.razor" />
+    <None Include="Pages\EntryComment\Components\CreateEntryCommentComponent.razor" />
+    <None Include="Pages\EntryComment\Components\EntryCommmentViewerComponent.razor" />
+    <None Include="Pages\Entry\Components\EntryFooterAuthorComponent.razor" />
+    <None Include="Pages\Entry\Components\RateComponents\EntryFooterFavoriteComponent.razor" />
+    <None Include="Pages\Entry\Components\RateComponents\EntryFooterRateFavoriteComponent.razor" />
+    <None Include="Pages\Entry\CreateEntryPage.razor" />
+    <None Include="Pages\Entry\EntryDetails.razor" />
+    <None Include="Pages\Entry\EntryViewerComponent.razor" />
+    <None Include="Pages\Entry\MainPageEntryListComponent.razor" />
+    <None Include="Pages\FetchData.razor" />
+    <None Include="Pages\Index.razor" />
+    <None Include="Pages\MainPages\EntriesComponent.razor" />
+    <None Include="Pages\UserPages\Components\UserProfileDetailComponent.razor" />
+    <None Include="Pages\UserPages\MyProfilePage.razor" />
+    <None Include="Pages\UserPages\UserLoginPage.razor" />
+    <None Include="Pages\UserPages\UserLogoutPage.razor" />
+    <None Include="Shared\MainLayout.razor" />
+    <None Include="Shared\NavMenu.razor" />
+    <None Include="Shared\SurveyPrompt.razor" />
+    <None Include="wwwroot\css\bootstrap\bootstrap.min.css.map" />
+    <None Include="wwwroot\css\open-iconic\FONT-LICENSE" />
+    <None Include="wwwroot\css\open-iconic\font\fonts\open-iconic.svg" />
+    <None Include="wwwroot\css\open-iconic\ICON-LICENSE" />
+    <None Include="wwwroot\css\open-iconic\README.md" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Blazored.LocalStorage" Version="4.5.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="8.0.5" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.5" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.5" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="8.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.2" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.5.2" />

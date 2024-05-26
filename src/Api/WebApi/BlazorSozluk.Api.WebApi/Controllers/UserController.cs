@@ -38,6 +38,7 @@ public class UserController : BaseController
 
     [HttpPost]
     [Route("Login")]
+    [AllowAnonymous]
     public async Task<IActionResult> Login([FromBody] LoginUserCommand command)
     {
         var res = await mediator.Send(command);
@@ -46,7 +47,8 @@ public class UserController : BaseController
     }
 
     [HttpPost]
-    [Authorize]
+    [Route("Create")]
+    //[Authorize]
     public async Task<IActionResult> Create([FromBody] CreateUserCommand command)
     {
         var guid = await mediator.Send(command);

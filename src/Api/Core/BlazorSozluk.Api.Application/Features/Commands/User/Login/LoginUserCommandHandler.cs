@@ -31,7 +31,7 @@ public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, LoginUs
 
         var pass = PasswordEncryptor.Encrypt(request.Password);
 
-        if (dbUser.Password != null)
+        if (dbUser.Password != pass)
         {
             throw new DatabaseValidationExceptions("Password is wrong!");
         }

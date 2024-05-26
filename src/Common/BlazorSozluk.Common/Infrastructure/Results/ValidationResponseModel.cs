@@ -5,6 +5,10 @@ public class ValidationResponseModel
 {
     public IEnumerable<string> Errors { get; set; }
 
+    public ValidationResponseModel()
+    {
+    }
+
     public ValidationResponseModel(string message) : this(new List<string>() { message })
     {
 

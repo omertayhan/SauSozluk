@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BlazorSozluk.Infrastructure.Persistence.Extensions;
+namespace BlazorSozluk.Api.Infrastructure.Persistence.Extensions;
 
 public static class Registration
-{ 
+{
     public static IServiceCollection AddInfrastructureRegistration(this IServiceCollection services, IConfiguration configuration)
     {
         //db injections işlemi
@@ -22,7 +22,7 @@ public static class Registration
             });
         });
 
-        //api.webapi çalıştıgında fake data üreten blogumuz 
+        //api.webapi çalıştıgında fake data üreten blok
         //var seedData = new SeedData();
         //seedData.SeedAsync(configuration).GetAwaiter().GetResult();
         services.AddScoped<DbContext, BlazorSozlukContext>();

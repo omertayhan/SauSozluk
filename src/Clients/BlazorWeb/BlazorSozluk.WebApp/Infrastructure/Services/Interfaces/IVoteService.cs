@@ -4,8 +4,8 @@ public interface IVoteService
 {
     Task CreateEntryCommentDownVote(Guid entryCommentId);
     Task CreateEntryCommentUpVote(Guid entryCommentId);
-    Task CreateEntryDownVote(Guid entryId);
+    Task CreateEntryDownVote(Guid entryCommentId);
     Task CreateEntryUpVote(Guid entryId);
-    Task DeleteEntryComment(Guid entryCommentId);
+    Task DeleteEntryCommentVote(Guid entryCommentId);
     Task DeleteEntryVote(Guid entryId);
 }
