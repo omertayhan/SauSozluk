@@ -15,7 +15,7 @@ public static class Registration
         //db injections işlemi
         services.AddDbContext<BlazorSozlukContext>(conf =>
         {
-            var connStr = configuration["BlazorSozlukDbConnectionString"].ToString();
+            var connStr = configuration["DbConnectionString"].ToString();
             conf.UseSqlServer(connStr, opt =>
             {
                 opt.EnableRetryOnFailure();

@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using BlazorSozluk.Api.Application.Interfaces.Repositories;
+using BlazorSozluk.Common;
 using BlazorSozluk.Common.Events.User;
 using BlazorSozluk.Common.Infrastructure;
-using BlazorSozluk.Common;
 using BlazorSozluk.Common.Infrastructure.Exceptions;
 using BlazorSozluk.Common.Models.RequestModels;
 using MediatR;
@@ -46,7 +46,7 @@ public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, Guid>
 
             QueueFactory.SendMessageToExchange(exchangeName: SozlukConstants.UserExchangeName,
                                                exchangeType: SozlukConstants.DefaultExchangeType,
-                                               queueName: SozlukConstants.UserEmailQueueName,
+                                               queueName: SozlukConstants.UserEmailChangedQueueName,
                                                obj: @event);
 
             dbUser.EmailConfirmed = false;

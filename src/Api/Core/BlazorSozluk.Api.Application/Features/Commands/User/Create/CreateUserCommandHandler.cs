@@ -43,7 +43,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
 
             QueueFactory.SendMessageToExchange(exchangeName: SozlukConstants.UserExchangeName,
                                                exchangeType: SozlukConstants.DefaultExchangeType,
-                                               queueName: SozlukConstants.UserEmailQueueName,
+                                               queueName: SozlukConstants.UserEmailChangedQueueName,
                                                obj: @event);
         }
         return dbUser.Id;

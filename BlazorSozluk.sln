@@ -34,6 +34,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorSozluk.Projections.FavoriteService", "src\Projections\BlazorSozluk.Projections.FavoriteService\BlazorSozluk.Projections.FavoriteService.csproj", "{D0D4B685-07BA-46C5-AA16-11A9F1BFCFD6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorSozluk.Projections.VoteService", "src\Projections\BlazorSozluk.Projections.VoteService\BlazorSozluk.Projections.VoteService.csproj", "{2546FA4B-4AA6-4223-9C76-DD098E7EB871}"
+	ProjectSection(ProjectDependencies) = postProject
+		{271A45DD-7C33-49D2-A878-32F4DF6066DE} = {271A45DD-7C33-49D2-A878-32F4DF6066DE}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorSozluk.WebApp", "src\Clients\BlazorWeb\BlazorSozluk.WebApp\BlazorSozluk.WebApp.csproj", "{C6F51DBB-8520-4EBE-A159-2BCC1C5A7B11}"
 EndProject

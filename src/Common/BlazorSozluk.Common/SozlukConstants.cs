@@ -7,7 +7,7 @@ public class SozlukConstants
     //User Exchange
     public const string UserExchangeName = "UserExchange";
 
-    public const string UserEmailQueueName = "UserEmailChangedQueue";
+    public const string UserEmailChangedQueueName = "UserEmailChangedQueue";
 
     //Fav Exchange 
     public const string FavExchangeName = "FavExchange";

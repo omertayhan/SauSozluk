@@ -11,15 +11,15 @@ internal class SeedData //db tablolarımızı bogus ile sahte data ile beslediğ
     private static List<User> GetUsers() //kullanıcılar için olan fake data
     {
         var result = new Faker<User>("tr")
-            .RuleFor(i => i.Id, i=> Guid.NewGuid())
-            .RuleFor(i => i.CreatedDate, 
+            .RuleFor(i => i.Id, i => Guid.NewGuid())
+            .RuleFor(i => i.CreatedDate,
                 i => i.Date.Between(DateTime.Now.AddDays(-30), DateTime.Now))
-            .RuleFor(i => i.FirstName, i=>i.Person.FirstName)
-            .RuleFor(i => i.LastName, i=>i.Person.LastName)
+            .RuleFor(i => i.FirstName, i => i.Person.FirstName)
+            .RuleFor(i => i.LastName, i => i.Person.LastName)
             .RuleFor(i => i.EmailAddress, i => i.Internet.Email())
-            .RuleFor(i => i.UserName, i=>i.Internet.UserName())
-            .RuleFor(i => i.Password, i=> PasswordEncryptor.Encrypt(i.Internet.UserName()))
-            .RuleFor(i => i.EmailConfirmed, i=>i.PickRandom(true,false))
+            .RuleFor(i => i.UserName, i => i.Internet.UserName())
+            .RuleFor(i => i.Password, i => PasswordEncryptor.Encrypt(i.Internet.UserName()))
+            .RuleFor(i => i.EmailConfirmed, i => i.PickRandom(true, false))
             .Generate(500);
 
         return result;
@@ -27,7 +27,7 @@ internal class SeedData //db tablolarımızı bogus ile sahte data ile beslediğ
     public async Task SeedAsync(IConfiguration config)
     {
         var builder = new DbContextOptionsBuilder();
-        builder.UseSqlServer(config["BlazorSozlukDbConnectionString"]);
+        builder.UseSqlServer(config["DbConnectionString"]);
 
         var context = new BlazorSozlukContext(builder.Options);
 
@@ -59,12 +59,12 @@ internal class SeedData //db tablolarımızı bogus ile sahte data ile beslediğ
         await context.entries.AddRangeAsync(entries);
 
         var comments = new Faker<EntryComment>("tr")
-            .RuleFor(i => i.Id, i=> Guid.NewGuid())
+            .RuleFor(i => i.Id, i => Guid.NewGuid())
             .RuleFor(i => i.CreatedDate,
                 i => i.Date.Between(DateTime.Now.AddDays(-30), DateTime.Now))
-            .RuleFor(i =>i.Content, i => i.Lorem.Paragraph(2))
-            .RuleFor(i => i.CreateById, i=>i.PickRandom(userIds)) //kim tarafından oluştudugumuzu userIds den çektik
-            .RuleFor(i => i.EntryId, i =>i.PickRandom(guids)) //bağlı oldukları entry idleri yukarıdan çektik 
+            .RuleFor(i => i.Content, i => i.Lorem.Paragraph(2))
+            .RuleFor(i => i.CreateById, i => i.PickRandom(userIds)) //kim tarafından oluştudugumuzu userIds den çektik
+            .RuleFor(i => i.EntryId, i => i.PickRandom(guids)) //bağlı oldukları entry idleri yukarıdan çektik 
             .Generate(1000);
 
         await context.entryComments.AddRangeAsync(comments);
