@@ -79,8 +79,8 @@ public class EntryController : BaseController
     [Authorize]
     public async Task<IActionResult> CreateEntry([FromBody] CreateEntryCommand command)
     {
-        if (!command.CreatedById.HasValue)
-            command.CreatedById = UserId;
+        if (!command.CreateById.HasValue)
+            command.CreateById = UserId;
 
         var result = await mediator.Send(command);
 

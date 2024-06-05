@@ -1,4 +1,4 @@
-using BlazorSozluk.Projections.UserService;
+using BlazorSozluk.Projections.User;
 using BlazorSozluk.Projections.UserService.Services;
 
 IHost host = Host.CreateDefaultBuilder(args)

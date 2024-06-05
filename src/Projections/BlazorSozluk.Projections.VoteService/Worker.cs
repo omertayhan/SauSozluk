@@ -2,6 +2,7 @@ using BlazorSozluk.Common;
 using BlazorSozluk.Common.Events.Entry;
 using BlazorSozluk.Common.Events.EntryComment;
 using BlazorSozluk.Common.Infrastructure;
+using Microsoft.Extensions.Logging;
 
 namespace BlazorSozluk.Projections.VoteService;
 
@@ -18,7 +19,7 @@ public class Worker : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        var connStr = configuration.GetConnectionString("ConnectionStrings");
+        var connStr = configuration.GetConnectionString("SqlServer");
 
         var voteService = new Services.VoteService(connStr);
 

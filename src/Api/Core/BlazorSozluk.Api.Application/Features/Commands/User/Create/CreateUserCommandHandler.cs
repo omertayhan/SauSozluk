@@ -29,6 +29,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
         }
 
         var dbUser = _mapper.Map<Domain.Models.User>(request);
+        dbUser.Password = PasswordEncryptor.Encrypt(request.Password); //pass hashed here
 
         var rows = await _userRepository.AddAsync(dbUser);
 

@@ -3,7 +3,7 @@ using BlazorSozluk.Common.Events.User;
 using BlazorSozluk.Common.Infrastructure;
 using BlazorSozluk.Projections.UserService.Services;
 
-namespace BlazorSozluk.Projections.UserService;
+namespace BlazorSozluk.Projections.User;
 
 public class Worker : BackgroundService
 {

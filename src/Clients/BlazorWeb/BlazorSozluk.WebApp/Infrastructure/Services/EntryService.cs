@@ -18,7 +18,10 @@ public class EntryService : IEntryService
 
     public async Task<List<GetEntriesViewModel>> GetEntires()
     {
-        var result = await client.GetFromJsonAsync<List<GetEntriesViewModel>>("/api/entry?todaysEntries=false&count=30");
+        Random random = new Random();
+        int randomCount = random.Next(1, 51);
+
+        var result = await client.GetFromJsonAsync<List<GetEntriesViewModel>>($"/api/entry?todaysEntries=false&count={randomCount}");
 
         return result;
     }
@@ -50,7 +53,6 @@ public class EntryService : IEntryService
 
         return result;
     }
-
 
     public async Task<Guid> CreateEntry(CreateEntryCommand command)
     {

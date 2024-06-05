@@ -9,14 +9,15 @@
     margin-top: 10px;
     position: absolute;
     top: 0;
-    left: 100px;
+    left: 110px;
     width: 30%;
     height: 30px;
     display: flex;
-    justify-content: left;
+    justify-content: right;
     cursor: pointer;
     width: 180px;
     margin-bottom: 10px;
+    border-radius: 10px;
 }
 
 .top-nav {
@@ -32,7 +33,7 @@
 
 a.top-nav-item:hover {
     cursor: pointer;
-    color: #80be4a;
+    color: #124584;
     text-decoration: underline;
 }
 
@@ -71,8 +72,8 @@ a.sub-nav-item {
 
     a.sub-nav-item:hover, a.sub-nav-item.active {
         cursor: pointer;
-        color: #80be4a;
-        border-color: #80be4a;
+        color: #124584;
+        border-color: #124584;
         border-bottom: solid;
         transition: all .2s ease-in-out;
     }
@@ -113,7 +114,7 @@ main {
 a.more-data:hover {
     cursor: pointer;
     background-color: #1f1f1f;
-    color: #81C14B;
+    color: #124584;
 }
 
 .sidebar {
@@ -124,7 +125,6 @@ a.more-data:hover {
     padding-top: 5px;
     -webkit-overflow-scrolling: touch;
     z-index: 1
-    /*background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);*/
 }
 
     .sidebar::-webkit-scrollbar-track {

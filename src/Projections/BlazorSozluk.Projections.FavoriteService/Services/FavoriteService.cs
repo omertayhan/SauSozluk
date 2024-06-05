@@ -18,7 +18,7 @@ public class FavoriteService
         using var connection = new SqlConnection(connectionString);
 
         await connection
-            .ExecuteAsync("INSERT INTO EntryFavorite (Id, EntryId, CreatedById, CreateDate) VALUES(@Id, @EntryId, @CreatedById, GETDATE())",
+            .ExecuteAsync("INSERT INTO EntryFavorite (Id, EntryId, CreatedById, CreatedDate) VALUES(@Id, @EntryId, @CreatedById, GETDATE())",
             new
             {
                 Id = Guid.NewGuid(),
